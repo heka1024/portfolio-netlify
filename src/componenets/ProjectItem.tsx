@@ -8,9 +8,24 @@ import styled from "styled-components"
 interface Props {
   position: 'left' | 'right';
   image: string | undefined;
+  link: string;
+  title: string;
+  text: string;
 }
 
-export default function ProjectItem({ position, image }: Props) {
+const Title = styled.h4`
+  font-weight: bold;
+  margin-block: 0.77em;
+  margin-block-start: 0.33em;
+`
+
+
+const TextWrapper = styled.div`
+  margin: 10px;
+  padding: 10px;
+`
+
+export default function ProjectItem({ position, image, title, text, link }: Props) {
   return (
     <Container>
       { position === 'right' && <Column hidden={{ tablet: true, mobile: true }} /> }
@@ -19,13 +34,13 @@ export default function ProjectItem({ position, image }: Props) {
           <img src={image} alt="" />
         </Row>
         <Row>
-          <p>
-            MOMO <br />
-            E-commerce Fashion Store <br />
-            Website
-          </p>
+          <TextWrapper>
+            <Title> { title } </Title>
+            <p> { text } </p>
+          </TextWrapper>
+
           <OutlinedButton
-            href="https://momostores.herokuapp.com/"
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
           >
