@@ -1,8 +1,12 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { Wrapper, Container, Column, Row } from "./layout"
 import Title from "./Title"
 import image from "../../static/images/para.jpg"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const AboutWrapper = styled(Wrapper)`
   position: relative;
@@ -35,12 +39,37 @@ const AboutWrapper = styled(Wrapper)`
   }
 `
 
+const Typo = styled.div`
+  font-family: "Monument", sans-serif;
+  opacity: 0;
+`
+
 
 export default function About() {
+  const startTrigger = useRef()
+  const titleRef = useRef(null)
+  const trigger2 = useRef(null)
+
+  useEffect(() => {
+    const config: gsap.TweenVars = {
+      scrollTrigger: {
+        trigger: startTrigger.current,
+        start: "top center+=100px",
+        end: 'bottom center',
+        toggleActions: "play play play play",
+        scrub: 1,
+      },
+      duration: 4,
+      opacity: 1,
+    }
+    gsap.to(titleRef.current, config)
+    gsap.to(trigger2.current, config)
+  }, [])
+
   return (
-    <AboutWrapper>
+    <AboutWrapper >
       <Title text="About Me" className="title" />
-      <Wrapper maxWidth="auto" marginBottom="4rem" padding="0">
+      <Wrapper maxWidth="auto" marginBottom="4rem" padding="0" ref={startTrigger}>
         <Container column="column">
           <Column size="2">
             <img
@@ -50,7 +79,7 @@ export default function About() {
             />
           </Column>
           <Column>
-            <p>
+            <Typo ref={titleRef}>
               끊임없이 배우고 성장하는 polymath를 꿈꾸고 있습니다.
               <br />
               새로운 기술을 습득하는 것에 빠르며, 디자인 경험을 바탕으로
@@ -61,15 +90,16 @@ export default function About() {
               저의 다양한 경험과 배경은 창의적 사고를 가능하게 하고
               <br />
               다른 부서와의 소통 능력을 향상합니다.
-            </p>
+            </Typo>
           </Column>
         </Container>
       </Wrapper>
+
       <Wrapper maxWidth="auto" marginBottom="0" padding="0">
         <Container column="column" alignItems="flex-start">
           <Column>
             <Row>
-              <h3>
+              <h3 >
                 <span>교육</span>
               </h3>
               <p>지역시스템공학과 학사 - 서울대학교</p>

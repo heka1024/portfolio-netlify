@@ -1,7 +1,12 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { Wrapper, Container, Column } from "./layout"
 import Title from "./Title"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
+
 
 const Info = styled.article`
   margin-bottom: 2rem;
@@ -9,10 +14,14 @@ const Info = styled.article`
   h4 {
     margin: 0;
   }
-
+  
   @media ${({ theme }) => theme.device.mobile} {
     text-align: center;
   }
+`
+
+const AnimationWrapper = styled.div`
+  transform: translateY(-50%);
 `
 
 const CenteredMobile = styled.div`
@@ -21,13 +30,15 @@ const CenteredMobile = styled.div`
   }
 `
 
-const Contact = () => {
+function Contact() {
   return (
     <Wrapper>
       <Container>
         <Column size="2">
           <CenteredMobile>
-            <Title text="Contact" />
+            <Title
+              text="Contact"
+            />
           </CenteredMobile>
         </Column>
 
@@ -48,7 +59,7 @@ const Contact = () => {
             </a>
           </Info>
 
-          <Info>
+          <Info >
             <h4>GITHUB</h4>
             <a
               href="https://github.com/heka1024"
