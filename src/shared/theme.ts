@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components'
+
 const deviceSizes = {
   mobileSm: "320px",
   mobile: "600px",
@@ -12,7 +14,7 @@ const device = {
   tablet: `screen and (max-width: ${deviceSizes.tablet})`,
 }
 
-const theme = {
+const theme: DefaultTheme = {
   device,
 }
 

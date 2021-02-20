@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import LandingVideo from './LandingVideo'
-import styled from "styled-components"
-import { gsap } from "gsap"
+import styled, { keyframes } from "styled-components"
+import { gsap, TimelineLite } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Wrapper } from "./layout"
 
@@ -27,13 +27,24 @@ const TextContainer = styled.div`
   }
 `
 
+const boxFade = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
 const BackText = styled.div`
   font-family: "Monument", sans-serif;
+  animation: ${boxFade} 4s normal forwards ease-in-out;
 `
 
 const FrontText = styled(BackText)`
   color: transparent;
   -webkit-text-stroke: 0.02em #fff;
+  animation: ${boxFade} 4s normal forwards ease-in-out;
 `
 
 const Splash = () => {

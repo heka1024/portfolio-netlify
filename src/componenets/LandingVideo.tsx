@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import water from '../../static/videos/water.mp4'
+import water from '../../static/videos/stuff.mp4'
 
 const VideoContainer = styled.div`
   max-width: 50%;
