@@ -44,16 +44,17 @@ const FilledTitle = styled.h2`
   font-family: "Monument", sans-serif;
   text-transform: uppercase;
   line-height: 0.8;
+  margin-bottom: -25px;
 
   @media ${({ theme }) => theme.device.mobile} {
     font-size: 8vw;
+    margin-bottom: -5px;
   }
 `
 
 const OutlinedTitle = styled(FilledTitle)`
   -webkit-text-stroke: 0.02em #fff;
   color: transparent;
-  margin-bottom: ${({ theme }) => (theme.device.mobile ? `-5px` : `-30px`)};
 `
 
 interface Props {

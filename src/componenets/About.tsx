@@ -17,7 +17,7 @@ const AboutWrapper = styled(Wrapper)`
 
   .image {
     z-index: -1;
-    margin-top: -20px;
+    margin-top: -10px;
     position: relative;
   }
 

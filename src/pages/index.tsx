@@ -4,6 +4,7 @@ import theme from "../shared/theme"
 import { Header, Menu, Splash } from "../componenets"
 import '../styles/global.css'
 import About from "../componenets/About"
+import Project from "../componenets/Project"
 
 
 const MainWrapper = styled.div`
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <Splash />
       <About/>
+      <Project />
     </ThemeProvider>
   </MainWrapper>
 }
