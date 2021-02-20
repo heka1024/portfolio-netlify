@@ -5,6 +5,8 @@ import { Header, Menu, Splash } from "../componenets"
 import '../styles/global.css'
 import About from "../componenets/About"
 import Project from "../componenets/Project"
+import Contact from "../componenets/Contact"
+import Footer from "../componenets/Footer"
 
 
 const MainWrapper = styled.div`
@@ -19,6 +21,8 @@ export default function Home() {
       <Splash />
       <About/>
       <Project />
+      <Contact/>
+      <Footer />
     </ThemeProvider>
   </MainWrapper>
 }
